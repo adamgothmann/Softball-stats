@@ -1,6 +1,15 @@
-console.log('script');
-var statsApp = angular.module('statsApp', []);
+angular.module('statsApp', ['ngRoute'])
+  .config(["$routeProvider", function($routeProvider){
+    $routeProfider.
+      when("/home", {
+        templateUrl: "views/home.html",
+        controller: "mainController"
+      }).
+      otherwise({
+        redirectTo: "/home"
+      });
+  }])
 
-statsApp.controller('mainController', ['$scope', '$http', function($scope, $http){
-  console.log('angular');
-}]);
+  .controller('mainController', function($scope, $http) {
+    console.log('controller');
+  });
